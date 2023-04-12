@@ -1,5 +1,9 @@
 import ReactDOM from "react-dom/client";
+<<<<<<< HEAD
 import App from "@/routes";
+=======
+import App from "./pages/MyBook";
+>>>>>>> a3aefaf (slicing: my-book-page)
 import "@/styles/index.css";
 
 import { Provider } from "react-redux";
