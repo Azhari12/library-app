@@ -7,9 +7,11 @@ import { FC, useState, useMemo, useEffect } from "react";
 import axios from "axios";
 
 import Home from "@/pages";
+import Register from "@/pages/Register";
 import { ThemeContext } from "@/utils/context";
 
-axios.defaults.baseURL = "https://pokeapi.co/api/v2/";
+axios.defaults.baseURL =
+  "https://virtserver.swaggerhub.com/ropel12/Api-Documentation/1.0.0";
 
 const Router: FC = () => {
   const [theme, setTheme] = useState<string>("dark");
@@ -19,6 +21,10 @@ const Router: FC = () => {
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
     },
   ]);
 

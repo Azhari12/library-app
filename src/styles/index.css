@@ -4,4 +4,9 @@
 
 body {
   margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.my-card {
+  font-family: "Manrope", sans-serif;
 }
