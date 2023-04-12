@@ -1,5 +1,6 @@
 import React from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Layout from "@/components/Layout";
 
 import { SlPencil } from "react-icons/sl";
@@ -363,6 +364,8 @@ const MyBook = () => {
       </div>
     </Layout>
 =======
+=======
+>>>>>>> a3aefaf6b19cf111e4c5bc405d76bc33dce038c9
 import { AiOutlineFileSearch } from "react-icons/ai";
 import { SlPencil } from "react-icons/sl";
 import { FiTrash2 } from "react-icons/fi";
@@ -695,7 +698,10 @@ const MyBook = () => {
         </div>
       </section>
     </div>
+<<<<<<< HEAD
 >>>>>>> a3aefaf (slicing: my-book-page)
+=======
+>>>>>>> a3aefaf6b19cf111e4c5bc405d76bc33dce038c9
   );
 };
 

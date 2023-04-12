@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Layout from "@/components/Layout";
 import Navbar from "@/components/Navbar";
 =======
 >>>>>>> a3aefaf (slicing: my-book-page)
+=======
+>>>>>>> a3aefaf6b19cf111e4c5bc405d76bc33dce038c9
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -38,6 +41,7 @@ const Login = () => {
   };
 
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
     <Layout>
       <Navbar />
@@ -93,6 +97,8 @@ const Login = () => {
       </div>
     </Layout>
 =======
+=======
+>>>>>>> a3aefaf6b19cf111e4c5bc405d76bc33dce038c9
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-slate-600/40 lg:max-w-xl">
         <h1 className="text-3xl font-extrabold text-center text-green-500">
@@ -143,7 +149,10 @@ const Login = () => {
         </form>
       </div>
     </div>
+<<<<<<< HEAD
 >>>>>>> a3aefaf (slicing: my-book-page)
+=======
+>>>>>>> a3aefaf6b19cf111e4c5bc405d76bc33dce038c9
   );
 };
 
