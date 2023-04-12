@@ -8,6 +8,8 @@ import axios from "axios";
 
 import Home from "@/pages";
 import Register from "@/pages/Register";
+import MyBook from "@/pages/MyBook";
+import Login from "@/pages/Login";
 import { ThemeContext } from "@/utils/context";
 
 axios.defaults.baseURL =
@@ -25,6 +27,14 @@ const Router: FC = () => {
     {
       path: "/register",
       element: <Register />,
+    },
+    {
+      path: "/myBook",
+      element: <MyBook />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
     },
   ]);
 
