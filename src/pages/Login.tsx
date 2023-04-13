@@ -1,12 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
+import Cookies from "js-cookie";
+import { Link, useNavigate } from "react-router-dom";
 
 import Layout from "@/components/Layout";
-import Navbar from "@/components/Navbar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleEmailChange = (e: React.FormEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value);
@@ -19,16 +22,19 @@ const Login = () => {
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios
-      .post(
-        "https://virtserver.swaggerhub.com/ropel12/Api-Documentation/1.0.0/auth/login",
-        {
-          email,
-          password,
-        }
-      )
+      // https://virtserver.swaggerhub.com/devanada/hells-kitchen/1.1.0/login http://34.124.154.57:8000/auth/login
+      .post("http://34.124.154.57:8000/auth/login", {
+        email,
+        password,
+      })
       .then((response) => {
         const data = response.data;
+        Cookies.set("userData", JSON.stringify(data));
+        const userData = Cookies.get("userData");
         console.log(data);
+        console.log(userData);
+
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -37,7 +43,7 @@ const Login = () => {
 
   return (
     <Layout>
-      <div className="relative flex flex-col justify-center mt-[12%] overflow-hidden">
+      <div className="relative flex flex-col justify-center min-h-screen">
         <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-slate-600/40 lg:max-w-xl">
           <h1 className="text-3xl font-extrabold text-center text-green-500">
             Library App
@@ -83,6 +89,14 @@ const Login = () => {
               >
                 Sign In
               </button>
+              <p className=" text-center font-medium text-gray-500 pt-5">
+                Don't have an account?{" "}
+                {
+                  <Link className=" text-library-logo" to={"/register"}>
+                    Sign up
+                  </Link>
+                }
+              </p>
             </div>
           </form>
         </div>
