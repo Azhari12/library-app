@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 
 import Layout from "@/components/Layout";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import NavbarTest from "@/components/navabarTest";
 import Card from "@/components/Card";
 import axios from "axios";
+import Footer from "@/components/Footer";
 
 interface booksType {
   id: number;
   title: string;
   content: string;
+  username: string;
+  image: string;
 }
 
 const Home: FC = () => {
@@ -28,7 +29,7 @@ const Home: FC = () => {
         const { data, message } = response.data;
         setDatas(data);
         console.log(data);
-        alert(message);
+        // alert(message);
       })
       .catch((error) => {
         alert(error.toString());
@@ -39,16 +40,45 @@ const Home: FC = () => {
     <Layout>
       <Navbar />
       {/* <NavbarTest /> */}
-      <div className="container mx-auto p-16">
+      <div className="container mx-auto px-16">
         <div>
-          <p className="text-2xl font-bold"> Avalaible Books</p>
+          <p className="text-4xl font-bold"> Avalaible Books</p>
         </div>
-        <div className="grid gap-3 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
+        <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center mt-10">
           {datas.map((data) => {
             return (
-              <Card key={data.id} title={data.title} content={data.content} />
+              <Card
+                key={data.id}
+                title={data.title}
+                content={data.content}
+                username={data.username}
+                image={data.image}
+              />
             );
           })}
+        </div>
+        <div className="btn-group flex  justify-center border-t-2 ">
+          <button className="btn bg-transparent border-none text-bg-navar hover:text-white">
+            <p className="text-lg ">«</p>
+          </button>
+          <button className="btn bg-transparent border-none text-bg-navar hover:text-white">
+            <p className="text-sm">1</p>
+          </button>
+          <button className="btn bg-transparent border-none text-bg-navar hover:text-white">
+            <p className="text-sm">2</p>
+          </button>
+          <button className="btn bg-transparent border-none text-bg-navar hover:text-white">
+            <p className="text-sm">...</p>
+          </button>
+          <button className="btn bg-transparent border-none text-bg-navar hover:text-white">
+            <p className="text-sm ">9</p>
+          </button>
+          <button className="btn bg-transparent border-none text-bg-navar hover:text-white">
+            <p className="text-sm ">10</p>
+          </button>
+          <button className="btn bg-transparent border-none text-bg-navar hover:text-white">
+            <p className="text-lg ">»</p>
+          </button>
         </div>
       </div>
       <Footer />
