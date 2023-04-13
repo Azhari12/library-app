@@ -47,15 +47,11 @@ const Register: FC = () => {
     // })
 
     axios
-      .post(
-        "https://app.swaggerhub.com/apis/ropel12/Api-Documentation/1.0.0/auth/register/",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      )
+      .post("register", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((response) => {
         const { data } = response.data;
         alert("susccess");

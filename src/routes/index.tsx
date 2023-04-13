@@ -7,13 +7,14 @@ import { FC, useState, useMemo, useEffect } from "react";
 import axios from "axios";
 
 import Home from "@/pages";
-import Register from "@/pages/Register";
 import MyBook from "@/pages/MyBook";
 import Login from "@/pages/Login";
+import Register from "@/pages/auth/Register";
 import { ThemeContext } from "@/utils/context";
+import Cart from "@/pages/Cart";
 
 axios.defaults.baseURL =
-  "https://virtserver.swaggerhub.com/ropel12/Api-Documentation/1.0.0";
+  "https://virtserver.swaggerhub.com/dimasyudhana/akumulasi/1.0.0";
 
 const Router: FC = () => {
   const [theme, setTheme] = useState<string>("dark");
@@ -35,6 +36,10 @@ const Router: FC = () => {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/cart",
+      element: <Cart />,
     },
   ]);
 
