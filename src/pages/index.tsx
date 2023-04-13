@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Layout from "@/components/Layout";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import NavbarTest from "@/components/navabarTest";
 import Card from "@/components/Card";
 import axios from "axios";
@@ -50,6 +51,7 @@ const Home: FC = () => {
           })}
         </div>
       </div>
+      <Footer />
     </Layout>
   );
 };
