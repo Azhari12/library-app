@@ -47,19 +47,19 @@ const Register: FC = () => {
     // })
 
     axios
-      .post("register", formData, {
+      .post("/auth/register", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
       .then((response) => {
-        const { data } = response.data;
-        alert("susccess");
+        const { message } = response.data;
+        alert({ message });
         // navigate("/");
       })
       .catch((error) => {
-        // const { message } = error.response;
-        alert("error");
+        const { message } = error.response;
+        alert(message);
       });
   }
 
