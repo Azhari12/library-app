@@ -6,10 +6,21 @@ interface Props {
   title: string;
   content: string;
   image: string;
+  buttonLeft: string;
+  buttonRight: string;
+  buttonConfirm: string;
 }
 
 const Card: FC<Props> = (props) => {
-  const { title, content, username, image } = props;
+  const {
+    title,
+    content,
+    username,
+    image,
+    buttonLeft,
+    buttonRight,
+    buttonConfirm,
+  } = props;
   return (
     <div className="card w-[15rem] bg-white shadow-lg p-2 h-[90%]">
       <figure className="px-3 pt-3 h-2/3">
@@ -26,10 +37,10 @@ const Card: FC<Props> = (props) => {
             htmlFor="my-modal-3"
             className="cursor-pointer p-[0.5rem] text-white bg-bg-navar border border-bg-navar w-full text-center"
           >
-            Rent Now
+            {buttonLeft}
           </label>
           <button className="cursor-pointer p-[0.5rem] bg-white border border-gray-500 text-bg-navar w-full text-center">
-            Add to Cart
+            {buttonRight}
           </button>
         </div>
       </div>
@@ -59,7 +70,7 @@ const Card: FC<Props> = (props) => {
                 Cras eget convallis ex.
               </p>
               <button className="btn btn-primary bg-bg-navar hover:bg-bg-navar">
-                Confirm Rent
+                {buttonConfirm}
               </button>
             </div>
           </div>

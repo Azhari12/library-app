@@ -12,6 +12,8 @@ import Login from "@/pages/Login";
 import Register from "@/pages/auth/Register";
 import { ThemeContext } from "@/utils/context";
 import Cart from "@/pages/Cart";
+import MyRentBook from "@/pages/MyRentBook";
+import Profile from "@/pages/Profile";
 
 axios.defaults.baseURL =
   "https://virtserver.swaggerhub.com/dimasyudhana/akumulasi/1.0.0";
@@ -40,6 +42,14 @@ const Router: FC = () => {
     {
       path: "/cart",
       element: <Cart />,
+    },
+    {
+      path: "/my-rent-book",
+      element: <MyRentBook />,
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
     },
   ]);
 
