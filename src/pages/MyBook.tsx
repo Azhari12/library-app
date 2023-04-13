@@ -10,7 +10,7 @@ import Naruto from "@/assets/89977_f.jpg";
 const MyBook = () => {
   return (
     <Layout>
-      <Navbar />
+      <Navbar cart={false} />
       <div className="container mx-auto">
         <p className="text-3xl font-semibold">My Book List</p>
         <p className="pt-1 text-slate-500">Manage My Book List</p>
