@@ -1,7 +1,10 @@
 import { FC } from "react";
 import images from "@/assets/89977_f.jpg";
+import axios from "axios";
+import Cart from "@/pages/Cart";
 
 interface Props {
+  bookId: number;
   username: string;
   title: string;
   content: string;
@@ -13,6 +16,7 @@ interface Props {
 
 const Card: FC<Props> = (props) => {
   const {
+    bookId,
     title,
     content,
     username,
@@ -21,6 +25,30 @@ const Card: FC<Props> = (props) => {
     buttonRight,
     buttonConfirm,
   } = props;
+  const cart: number[] = [];
+
+  const handleSubmitOneRent = (bookRent: number[]) => {
+    axios
+      .post("transactions", bookRent)
+      .then((response) => {
+        const { message } = response.data;
+        alert(message);
+      })
+      .catch((error) => {
+        const { message } = error.response;
+        alert(message);
+      });
+  };
+
+  function handleSubmitRead() {
+    return "assad";
+  }
+
+  function handleAddCart(bookId: number) {
+    cart.push(bookId);
+    alert(cart);
+  }
+
   return (
     <div className="card w-[15rem] bg-white shadow-lg p-2 h-[90%]">
       <figure className="px-3 pt-3 h-2/3">
@@ -39,9 +67,18 @@ const Card: FC<Props> = (props) => {
           >
             {buttonLeft}
           </label>
-          <button className="cursor-pointer p-[0.5rem] bg-white border border-gray-500 text-bg-navar w-full text-center">
-            {buttonRight}
-          </button>
+          {buttonRight == "Add to Cart" ? (
+            <button
+              className="cursor-pointer p-[0.5rem] bg-white border border-gray-500 text-bg-navar w-full text-center"
+              onClick={(event) => handleAddCart(bookId)}
+            >
+              {buttonRight}
+            </button>
+          ) : (
+            <button className="cursor-pointer p-[0.5rem] bg-white border border-gray-500 text-bg-navar w-full text-center">
+              {buttonRight}
+            </button>
+          )}
         </div>
       </div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -69,9 +106,18 @@ const Card: FC<Props> = (props) => {
                 lobortis quam vitae sem eleifend, sed fermentum nisi vulputate.
                 Cras eget convallis ex.
               </p>
-              <button className="btn btn-primary bg-bg-navar hover:bg-bg-navar">
-                {buttonConfirm}
-              </button>
+              {buttonConfirm == "Confirm Rent" ? (
+                <button
+                  className="btn btn-primary bg-bg-navar hover:bg-bg-navar"
+                  onClick={(event) => handleSubmitOneRent([1])}
+                >
+                  Confirm Rent
+                </button>
+              ) : (
+                <button className="btn btn-primary bg-bg-navar hover:bg-bg-navar">
+                  Confirm Read
+                </button>
+              )}
             </div>
           </div>
         </div>

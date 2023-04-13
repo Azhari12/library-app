@@ -16,7 +16,9 @@ import MyRentBook from "@/pages/MyRentBook";
 import Profile from "@/pages/Profile";
 
 axios.defaults.baseURL =
-  "https://virtserver.swaggerhub.com/dimasyudhana/akumulasi/1.0.0";
+  // "https://virtserver.swaggerhub.com/dimasyudhana/akumulasi/1.0.0";
+  axios.defaults.baseURL = "http://34.124.154.57:8000/";
+// axios.defaults.baseURL = "https://11be-34-124-154-57.ap.ngrok.io/";
 
 const Router: FC = () => {
   const [theme, setTheme] = useState<string>("dark");
@@ -32,7 +34,7 @@ const Router: FC = () => {
       element: <Register />,
     },
     {
-      path: "/myBook",
+      path: "/my-book",
       element: <MyBook />,
     },
     {

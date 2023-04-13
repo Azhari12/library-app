@@ -47,6 +47,7 @@ const MyRentBook: FC = () => {
           {datas.map((data) => {
             return (
               <Card
+                bookId={0}
                 key={data.id}
                 title={data.title}
                 content={data.content}
