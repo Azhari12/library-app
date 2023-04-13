@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import image from "@/assets/89977_f.jpg";
@@ -8,6 +8,20 @@ interface Props {
 }
 const Navbar: FC<Props> = (props) => {
   const { cart } = props;
+  const [cartCount, setCartCount] = useState<number>(0);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  function fetchData() {
+    const myString: string | null = localStorage.getItem("cart");
+    if (myString !== null) {
+      const array: number[] = JSON.parse(myString);
+      setCartCount(array.length);
+    }
+  }
+
   return (
     <nav className="border-gray-200  bg-bg-navar navbar">
       <div className="container mx-auto flex flex-wrap items-center justify-between px-16">
@@ -36,7 +50,9 @@ const Navbar: FC<Props> = (props) => {
                         d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                       />
                     </svg>
-                    <span className="badge badge-sm indicator-item">8</span>
+                    <span className="badge badge-sm indicator-item">
+                      {cartCount}
+                    </span>
                   </div>
                 </label>
                 {cart ? (
@@ -45,7 +61,9 @@ const Navbar: FC<Props> = (props) => {
                     className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
                   >
                     <div className="card-body">
-                      <span className="font-bold text-lg">8 Items</span>
+                      <span className="font-bold text-lg">
+                        {cartCount} Items
+                      </span>
                       <div className="card-actions">
                         <Link
                           to={"/cart"}
@@ -64,7 +82,7 @@ const Navbar: FC<Props> = (props) => {
                   className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
                 >
                   <div className="card-body">
-                    <span className="font-bold text-lg">8 Items</span>
+                    <span className="font-bold text-lg">{cartCount} Items</span>
                     <div className="card-actions">
                       <Link to={"/cart"} className="btn btn-primary btn-block">
                         View cart
@@ -105,7 +123,7 @@ const Navbar: FC<Props> = (props) => {
                   </li>
 
                   <li>
-                    <a>Logout</a>
+                    <Link to={"/login"}>Logout</Link>
                   </li>
                 </ul>
               </div>
@@ -128,7 +146,7 @@ const Navbar: FC<Props> = (props) => {
             </li>
             <li>
               <Link
-                to={"my-book"}
+                to={"/my-book"}
                 className="text-white hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-white md:p-0"
               >
                 My Book

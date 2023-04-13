@@ -9,7 +9,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Naruto from "@/assets/89977_f.jpg";
 import List from "@/components/List";
-import Modal from "@/components/Modal";
 
 interface booksList {
   id: number;
