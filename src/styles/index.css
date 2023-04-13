@@ -10,3 +10,11 @@ body {
 .my-card {
   font-family: "Manrope", sans-serif;
 }
+
+.profil-header {
+  background-image: url("../assets/394862.jpg");
+}
+
+.profil-content {
+  background-image: url(https://images.unsplash.com/photo-1520366914631-d250fd86eed2?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80);
+}

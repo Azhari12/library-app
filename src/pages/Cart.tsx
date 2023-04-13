@@ -10,10 +10,10 @@ const Cart: FC = () => {
   return (
     <Layout>
       <div className=" sticky top-0 w-full">
-        <Navbar />
+        <Navbar cart={false} />
       </div>
-      <div className="container mx-auto px-16 overflow-auto h-[18.55rem]">
-        <div>
+      <div className="container mx-auto px-16 overflow-auto h-[19.55rem] mt-10">
+        <div className=" ">
           <p className="text-4xl font-bold"> Your Cart Rent</p>
         </div>
         <div className=" m-10">
@@ -127,7 +127,7 @@ const Cart: FC = () => {
           </div>
         </div>
       </div>
-      <div className=" sticky bottom-0 w-full">
+      <div className=" absolute bottom-0 w-full">
         <div className="flex justify-center w-full">
           <button className="btn btn-primary bg-bg-navar m-5">
             Confirm Rent

@@ -68,30 +68,32 @@ const Register: FC = () => {
       <div className="container mx-auto">
         <div className="flex justify-center items-center h-screen flex-col w-full">
           <div className=" justify-center text-center">
-            <p className="text-2xl">Library App</p>
+            <span className="self-center text-4xl font-extrabold whitespace-nowrap text-library-logo">
+              Library App
+            </span>{" "}
             <p className="text-2xl font-bold">Create Free Account</p>
           </div>
           <div className="border shadow-sm shadow-slate-800 box p-5 lg:w-2/5 mt-5">
             <form
-              className="flex flex-col justify-center items-center"
+              className="flex flex-col justify-center items-center "
               onSubmit={(event) => handleSubmit(event)}
             >
               <input
                 type="email"
                 placeholder="Email Address"
-                className=" border-2 border-slate-300 input w-full max-w-md bg-white m-2"
+                className=" border-2 border-slate-300 input w-full max-w-md bg-white m-2 text-center"
                 onChange={(event) => handleChange(event.target.value, "email")}
               />
               <input
                 type="text"
                 placeholder="Name"
-                className=" border-2 border-slate-300 input w-full max-w-md bg-white m-2 "
+                className=" border-2 border-slate-300 input w-full max-w-md bg-white m-2 text-center"
                 onChange={(event) => handleChange(event.target.value, "name")}
               />
               <input
                 type="password"
                 placeholder="Create Password"
-                className=" border-2 border-slate-300 input w-full max-w-md bg-white m-2 "
+                className=" border-2 border-slate-300 input w-full max-w-md bg-white m-2 text-center"
                 onChange={(event) =>
                   handleChange(event.target.value, "password")
                 }
@@ -99,13 +101,22 @@ const Register: FC = () => {
               <input
                 type="text"
                 placeholder="Address"
-                className=" border-2 border-slate-300 input w-full max-w-md bg-white m-2 "
+                className=" border-2 border-slate-300 input w-full max-w-md bg-white m-2 text-center"
                 onChange={(event) =>
                   handleChange(event.target.value, "address")
                 }
               />
               <button className="btn w-full m-3 wfu">Sign Up</button>
             </form>
+
+            <p className=" text-center font-medium text-gray-500">
+              Already have an account?{" "}
+              {
+                <Link className=" text-library-logo" to={"/login"}>
+                  Sign in
+                </Link>
+              }
+            </p>
           </div>
         </div>
       </div>

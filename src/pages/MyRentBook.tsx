@@ -1,11 +1,11 @@
-import { useState, FC, useEffect } from "react";
-import { Link } from "react-router-dom";
-
+import Footer from "@/components/Footer";
 import Layout from "@/components/Layout";
 import Navbar from "@/components/Navbar";
 import Card from "@/components/Card";
+import { useState, FC, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import axios from "axios";
-import Footer from "@/components/Footer";
 
 interface booksType {
   id: number;
@@ -15,7 +15,7 @@ interface booksType {
   image: string;
 }
 
-const Home: FC = () => {
+const MyRentBook: FC = () => {
   const [datas, setDatas] = useState<booksType[]>([]);
 
   useEffect(() => {
@@ -38,11 +38,10 @@ const Home: FC = () => {
 
   return (
     <Layout>
-      <Navbar cart={true} />
-      {/* <NavbarTest /> */}
-      <div className="container mx-auto px-16 my-16">
+      <Navbar cart={false} />
+      <div className="container mx-auto px-16">
         <div>
-          <p className="text-4xl font-bold"> Avalaible Books</p>
+          <p className="text-4xl font-bold"> My Rented Books </p>
         </div>
         <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center mt-10">
           {datas.map((data) => {
@@ -53,9 +52,9 @@ const Home: FC = () => {
                 content={data.content}
                 username={data.username}
                 image={data.image}
-                buttonLeft="Rent Now"
-                buttonRight="Add to Cart"
-                buttonConfirm="Confirm Rent"
+                buttonLeft="Read Book"
+                buttonRight="Return"
+                buttonConfirm="Confirm Read"
               />
             );
           })}
@@ -89,4 +88,4 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+export default MyRentBook;

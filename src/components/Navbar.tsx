@@ -2,10 +2,15 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 
 import image from "@/assets/89977_f.jpg";
-const Navbar: FC = () => {
+
+interface Props {
+  cart: boolean;
+}
+const Navbar: FC<Props> = (props) => {
+  const { cart } = props;
   return (
-    <nav className="border-gray-200 px-2 mb-10 bg-bg-navar navbar">
-      <div className="container mx-auto flex flex-wrap items-center justify-between">
+    <nav className="border-gray-200  bg-bg-navar navbar">
+      <div className="container mx-auto flex flex-wrap items-center justify-between px-16">
         <a href="#" className="flex">
           <span className="self-center text-lg font-semibold whitespace-nowrap text-library-logo">
             Library App
@@ -34,6 +39,26 @@ const Navbar: FC = () => {
                     <span className="badge badge-sm indicator-item">8</span>
                   </div>
                 </label>
+                {cart ? (
+                  <div
+                    tabIndex={0}
+                    className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
+                  >
+                    <div className="card-body">
+                      <span className="font-bold text-lg">8 Items</span>
+                      <div className="card-actions">
+                        <Link
+                          to={"/cart"}
+                          className="btn btn-primary btn-block"
+                        >
+                          View cart
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
                 <div
                   tabIndex={0}
                   className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
@@ -74,7 +99,7 @@ const Navbar: FC = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to={"profile"} className="justify-between">
+                    <Link to={"/profile"} className="justify-between">
                       Profile
                     </Link>
                   </li>
